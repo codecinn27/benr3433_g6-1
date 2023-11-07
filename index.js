@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
 const path = require('path');
 const methodOverride = require('method-override'); 
 const ejsMate = require('ejs-mate'); 
@@ -20,6 +20,7 @@ mongoose.connect(url, {
         console.log("Oh No Error!!!");
         console.log(err);
     });
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine','ejs');
